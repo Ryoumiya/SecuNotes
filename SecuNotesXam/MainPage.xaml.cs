@@ -31,12 +31,10 @@ namespace SecuNotesXam
             if (SecureCheck.Result)
             {
                 StorageStatDisplay.Text = "SecureStorage Is Supported";
-                Vibration.Vibrate(150);
             }
             else
             {
                 StorageStatDisplay.Text = "SecureStorage Is NOT Supported";
-                Vibration.Vibrate();
             }
 
         }
