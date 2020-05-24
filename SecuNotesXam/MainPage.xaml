@@ -6,10 +6,30 @@
              mc:Ignorable="d"
              x:Class="SecuNotesXam.MainPage">
 
-    <StackLayout>
-        <Frame CornerRadius="10" Padding="10" Margin="20" BorderColor="AliceBlue">
-            <Label Text="Hello Xamarin On Android 4.4.2 !"/>
+    <StackLayout Padding="10" Margin="20">
+        <!--Generic Testing Site!-->
+        
+        <Frame CornerRadius="10" 
+               BorderColor="DarkTurquoise" 
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="Center">
+            <Label Text="Hello Xamarin!" HorizontalOptions="Center"/>
         </Frame>
+        
+        <Frame CornerRadius="10" 
+               BorderColor="DarkTurquoise" 
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="Center">
+            <Label x:Name="StorageStatDisplay" Text="Testing..." HorizontalOptions="Center"/>
+        </Frame>
+
+        <Frame CornerRadius="10" 
+               BorderColor="DarkTurquoise" 
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="Center">
+            <Label x:Name="DeviceIDStatDisplay" Text="Testing..." HorizontalOptions="Center"/>
+        </Frame>
+        
     </StackLayout>
 
 </ContentPage>
