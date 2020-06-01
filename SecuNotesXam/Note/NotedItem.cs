@@ -11,7 +11,7 @@ namespace SecuNotesXam
         public DateTime LastModifiedDate { get; set; }
         public string TitleText { get; set; }
         public string ContentText { get; set; }
-        public string PesudoID { get; set; }
+        public string ID { get; set; }
 
 
         public override string ToString()
@@ -39,6 +39,5 @@ namespace SecuNotesXam
             ContentText = temp.ContentText;
 
         }
-
     }
 }

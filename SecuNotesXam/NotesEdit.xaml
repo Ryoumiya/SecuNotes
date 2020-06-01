@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SecuNotesXam.NotesEdit">
+    <ContentPage.Content>
+        <StackLayout Spacing="5">
+            <!--Top Gretting-->
+            <Frame BackgroundColor="AliceBlue" VerticalOptions="Start">
+                <Label x:Name="PageTitleText" FontSize="Large" HorizontalOptions="Center" Text="PlaceHolder!"/>
+            </Frame>
+
+            <Frame CornerRadius="10"
+                   Margin="10"
+                   BorderColor="DarkTurquoise" 
+                   HorizontalOptions="Fill">
+                <Entry x:Name="NoteTitle_Displayer" Placeholder="Title..." PlaceholderColor="DarkSlateGray"/>
+            </Frame>
+
+            <Frame CornerRadius="10"
+                   Margin="10"
+                   BorderColor="DarkTurquoise" 
+                   HorizontalOptions="Fill">
+                <Editor x:Name="NoteContents_Displayer" Placeholder="Contents..." PlaceholderColor="DarkSlateGray"/>
+            </Frame>
+
+            <Button VerticalOptions="EndAndExpand" 
+                    Text="💾" 
+                    CornerRadius="10" 
+                    x:Name="MainConfigButton"
+                    Pressed="MainConfigButton_Pressed"
+                    Released="MainConfigButton_Released"
+                    />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

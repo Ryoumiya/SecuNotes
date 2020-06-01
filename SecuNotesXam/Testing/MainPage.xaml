@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SecuNotesXam.MainPage">
+
+    <ScrollView>
+        <StackLayout Padding="5" Margin="20" x:Name="mainStckLayout">
+            <!--Generic Testing Site!-->
+        
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Hello Xamarin!" HorizontalOptions="Center"/>
+            </Frame>
+        
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Label x:Name="StorageStatDisplay" Text="Testing..." HorizontalOptions="Center"/>
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Label x:Name="DeviceIDStatDisplay" Text="Testing..." HorizontalOptions="Center"/>
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Label Text="{Binding TextTest}" x:Name="BtnPressText" HorizontalOptions="Center"/>
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Button x:Name="PressTestButton"
+                        Text="ButtonPressTest"
+                        Pressed="PressTestButton_Pressed"
+                        Released="PressTestButton_Released"
+                        Clicked="PressTestButton_Clicked"
+                        />
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Button x:Name="LPBtoon"
+                        Text="Not Pressed"
+                        Pressed="LPBtoon_Pressed"
+                        Released="LPBtoon_Released"
+                        />
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="HelloWorld" Grid.Column="0" Grid.Row="0"/>
+
+                    <Label Text="Memeo TestHere! How are you doing ?" Grid.Column="0" Grid.Row="1"/>
+
+
+                </Grid>
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Button Text="memos" Clicked="Memobuttonclick"/>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+    
+
+</ContentPage>

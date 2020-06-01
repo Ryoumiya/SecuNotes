@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace SecuNotesXam
 {
     public partial class App : Application
@@ -10,7 +11,11 @@ namespace SecuNotesXam
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //For Debug and Testing ONLY!
+            //MainPage = new SecuNotesXam.MainPage();
+
+            //this is the real main page
+            MainPage = new NotesDisplayer();
         }
 
         protected override void OnStart()

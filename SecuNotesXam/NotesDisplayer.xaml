@@ -6,9 +6,36 @@
              mc:Ignorable="d"
              x:Class="SecuNotesXam.NotesDisplayer">
     <ContentPage.Content>
-        <StackLayout>
-            
-            <!--Stuff Here!-->
+        <StackLayout 
+            BackgroundColor="#F0F7F4" 
+            Padding="0"
+            Orientation="Vertical"
+            Spacing="0">
+           
+            <!--Notes-->
+            <ListView HorizontalOptions="Fill" VerticalOptions="StartAndExpand"  
+                x:Name="MemoDisplay">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--How each Notes Looks-->
+                        <TextCell
+                            Text="{Binding TitleText}" TextColor="#7E8D85"
+                            Detail="{Binding ContentText}" DetailColor="#A18276"
+                            />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button 
+                x:Name="MainButton"
+                Text="+" 
+                HorizontalOptions="FillAndExpand" 
+                HeightRequest="30" 
+                BackgroundColor="DarkOrange" 
+                Padding="0"
+                Pressed="MainButton_Pressed"
+                Released="MainButton_Released"
+                />
             
         </StackLayout>
     </ContentPage.Content>
