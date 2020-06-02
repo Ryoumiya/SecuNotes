@@ -68,6 +68,16 @@
                    BorderColor="DarkTurquoise" 
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="Center">
+                <Button x:Name="ToastButton"
+                        Text="Popup"
+                        Clicked="ToastButton_Clicked"
+                        />
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -90,6 +100,13 @@
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="Center">
                 <Button Text="memos" Clicked="Memobuttonclick"/>
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   BorderColor="DarkTurquoise" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center">
+                <Button Text="Config" Clicked="ConfigButton_Clicked"/>
             </Frame>
 
         </StackLayout>

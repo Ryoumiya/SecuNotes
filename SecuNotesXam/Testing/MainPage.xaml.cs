@@ -150,5 +150,16 @@ namespace SecuNotesXam
 
             LongPress = false;
         }
+
+        private async void ToastButton_Clicked(object sender, EventArgs e)
+        {
+            bool answer = await DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+        }
+
+        private async void ConfigButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ConfigPage(), true);
+        }
     }
 }

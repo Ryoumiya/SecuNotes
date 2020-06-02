@@ -13,8 +13,11 @@
             Spacing="0">
            
             <!--Notes-->
-            <ListView HorizontalOptions="Fill" VerticalOptions="StartAndExpand"  
-                x:Name="MemoDisplay">
+            <ListView 
+                HorizontalOptions="Fill" VerticalOptions="StartAndExpand"  
+                x:Name="NotesDisplay"
+                SelectionMode="None"
+                ItemTapped="NotesDisplay_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <!--How each Notes Looks-->

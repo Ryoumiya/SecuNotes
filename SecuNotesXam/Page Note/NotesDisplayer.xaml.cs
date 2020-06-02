@@ -16,52 +16,49 @@ namespace SecuNotesXam
     {
         bool isMainButtonPressed = false;
         bool isMainButtonLongPress = false;
+        List<NotedItem> ListofItems;
 
         public NotesDisplayer()
         {
             InitializeComponent();
         }
-        private void DemoOnlyFillWithRandom(int range)
-        {
-            List<NotedItem> ListOfNotes = new List<NotedItem>();
-            ListOfNotes.Add(new NotedItem() { TitleText = "HelloWorld", ContentText = "This is a TestString1" });
-            
-            for(int i = 0; i < range; i++)
-            {
-                ListOfNotes.Add(new NotedItem()
-                {
-                    TitleText = "TestNote - " + i.ToString(),
-                    ContentText = "Lorem ipsum dolor sit amet, " +
-                    "consectetur adipiscing elit. Sed cursus malesuada efficitur. " +
-                    "Proin in sapien arcu. Ut elementum, ipsum nec tempus imperdiet, " +
-                    "ante mauris pharetra mauris, nec volutpat purus nunc ut dui",
-                    LastModifiedDate = DateTime.Now,
-                    ID = i.ToString()
-                }); ;
-            }
-
-            MemoDisplay.ItemsSource = ListOfNotes; 
-        }
-
+        
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            DemoOnlyFillWithRandom(20);
+            await GetNotes();
         }
 
-        private async void GetNotes()
+        private async Task<int> GetNotes()
         {
-            List<NotedItem> ListofItems = new List<NotedItem>();
+            ListofItems = new List<NotedItem>();
+
+            //retives it then if null its converts it to 0
             string SAoN = await SecureStorage.GetAsync("NotesAmount_Key");
             int AmountOfNotes = Convert.ToInt32(SAoN);
-            for(int i = 0; i  < AmountOfNotes; i++)
-            {
-
+            
+            if (AmountOfNotes.Equals(0)){ 
+                return 0;
             }
-        }
+            string KeyNote = "SecureNoteKey";
+            for(int i = 1; i <= AmountOfNotes; i++)
+            {
+                //Loop to each item and 
+                string NoteJSON = await SecureStorage.GetAsync(string.Join("_", KeyNote, i));
+                
+                //if there is nothing there just skip it
+                if (!Equals(NoteJSON,null)){
+                    //if there is something there move it
+                    ListofItems.Add(NotedItem.Static_PraseJSON(NoteJSON));
+                }
+                
+            }
 
-        
+            NotesDisplay.ItemsSource = ListofItems;
+
+            return 1;
+        }
 
         private void MainButton_Pressed(object sender, EventArgs e)
         {
@@ -82,7 +79,7 @@ namespace SecuNotesXam
             if(isMainButtonLongPress)
             {
                 //Long Press!
-
+                await Navigation.PushModalAsync(new ConfigPage(), true);
             }
             else
             {
@@ -94,6 +91,12 @@ namespace SecuNotesXam
             isMainButtonPressed = false;
             isMainButtonLongPress = false;
             MainButton.Text = "+";
+        }
+
+        private async void NotesDisplay_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            int SelectedID = ListofItems.ElementAt(e.ItemIndex).ID;
+            await Navigation.PushModalAsync(new NotesEdit(SelectedID), true);
         }
     }
 }

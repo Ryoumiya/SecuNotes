@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout Spacing="5">
             <!--Top Gretting-->
-            <Frame BackgroundColor="AliceBlue" VerticalOptions="Start">
+            <Frame BackgroundColor="AliceBlue" VerticalOptions="Start" >
                 <Label x:Name="PageTitleText" FontSize="Large" HorizontalOptions="Center" Text="PlaceHolder!"/>
             </Frame>
 
@@ -23,7 +23,9 @@
                    Margin="10"
                    BorderColor="DarkTurquoise" 
                    HorizontalOptions="Fill">
-                <Editor x:Name="NoteContents_Displayer" Placeholder="Contents..." PlaceholderColor="DarkSlateGray"/>
+                <Editor x:Name="NoteContents_Displayer" AutoSize="TextChanges"
+                        Placeholder="Contents..." PlaceholderColor="DarkSlateGray"
+                        VerticalOptions="Fill"/>
             </Frame>
 
             <Button VerticalOptions="EndAndExpand" 

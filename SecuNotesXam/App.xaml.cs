@@ -10,12 +10,13 @@ namespace SecuNotesXam
         public App()
         {
             InitializeComponent();
-
+#if DEBUG 
             //For Debug and Testing ONLY!
-            //MainPage = new SecuNotesXam.MainPage();
-
+            MainPage = new SecuNotesXam.MainPage();
+#else
             //this is the real main page
             MainPage = new NotesDisplayer();
+#endif
         }
 
         protected override void OnStart()

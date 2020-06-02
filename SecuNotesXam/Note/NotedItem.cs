@@ -11,7 +11,7 @@ namespace SecuNotesXam
         public DateTime LastModifiedDate { get; set; }
         public string TitleText { get; set; }
         public string ContentText { get; set; }
-        public string ID { get; set; }
+        public int ID { get; set; }
 
 
         public override string ToString()
@@ -26,9 +26,14 @@ namespace SecuNotesXam
             ContentText = items[1];
         }
 
-        public string GetJSON()
+        public string ToJSON()
         {
             return JsonConvert.SerializeObject(this);
+        }
+
+        public static NotedItem Static_PraseJSON(string InputJSON)
+        {
+            return JsonConvert.DeserializeObject<NotedItem>(InputJSON);
         }
 
         public void PraseJSON(string input)
@@ -37,7 +42,6 @@ namespace SecuNotesXam
             LastModifiedDate = temp.LastModifiedDate;
             TitleText = temp.TitleText;
             ContentText = temp.ContentText;
-
         }
     }
 }
